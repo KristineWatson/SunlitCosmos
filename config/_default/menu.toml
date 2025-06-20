@@ -39,3 +39,11 @@ url = "https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIxMTE2MjIxMA==&action=get
 [social.params]
 icon = "微信公众号"
 
+[[social]]
+identifier = "rss"
+name = "RSS"
+url = "/index.xml"
+
+[social.params]
+icon = "brand-rss"
+
