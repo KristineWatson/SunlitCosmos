@@ -1,7 +1,7 @@
 ---
-title: Links
+title: 相关链接
 links:
-  - title: RedNote
+  - title: 小红书
     description: |
       🌈 K&Unixy，更新性多元科普内容。
       🌌 Unixy （Unique Colorful Galaxy）
@@ -12,7 +12,7 @@ links:
     website: https://www.xiaohongshu.com/user/profile/5efdc041000000000101de44?xsec_token=&xsec_source=pc_note
     image: icon-XiaohongshuLOGO.png
   - title: Substack
-    description: Welcome to Subscribe my Newsletter with your e-mail or RSS reader!
+    description: 欢迎使用邮箱或RSS阅读器订阅我的 Newsletter！
     website: https://substack.com/@kristineyuxi?utm_source=user-menu
     image: icon-substack.svg
 menu:

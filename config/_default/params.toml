@@ -6,7 +6,7 @@ favicon = "/favicon.png"
 
 [footer]
 since = 2024
-customText = "Created by Kristine Yuxi"
+customText = '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" /><img alt="Attribution" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" /><img alt="NonCommercial" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" /><img alt="NoDerivs" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" /> This site is licensed under a CC BY-NC-ND 4.0 International License.</a>'
 
 [dateFormat]
 published = "Jan 02, 2006"
@@ -28,12 +28,9 @@ readingTime = true
 
 [article.license]
 enabled = true
-default = "Licensed under CC BY-NC-SA 4.0"
+default = "Licensed under CC BY-NC-ND 4.0"
 
 ## Widgets
-[[widgets.homepage]]
-type = "search"
-
 [[widgets.homepage]]
 type = "archives"
 
