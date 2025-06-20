@@ -1,6 +1,7 @@
 {{ define "main" }}
-    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{/* 获取所有 Section 为 mainSections 的文章，不限语言 */}}
+    {{ $pages := where .Site.Pages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.Pages "Params.hidden" "!=" true }}
     {{ $filtered := ($pages | intersect $notHidden) }}
     {{ $pag := .Paginate ($filtered) }}
 
