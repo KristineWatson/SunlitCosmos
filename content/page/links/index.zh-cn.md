@@ -15,6 +15,10 @@ links:
     description: 欢迎使用邮箱或RSS阅读器订阅我的 Newsletter！
     website: https://substack.com/@kristineyuxi?utm_source=user-menu
     image: icon-substack.svg
+  - title: 微信公众号
+    description: 微信公众号：日晞之野 Sunlit Cosmos
+    website: 
+    image: icon-微信公众号.png
 menu:
     main: 
         weight: 4

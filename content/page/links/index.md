@@ -15,6 +15,11 @@ links:
     description: Welcome to Subscribe my Newsletter with your e-mail or RSS reader!
     website: https://substack.com/@kristineyuxi?utm_source=user-menu
     image: icon-substack.svg
+  - title: Wechat Public Account
+    description: Wechat Public Account：Sunlit Cosmos
+    website: 
+    image: icon-微信公众号.png
+  
 menu:
     main: 
         weight: 4
