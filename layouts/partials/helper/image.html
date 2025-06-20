@@ -2,6 +2,11 @@
 {{ $imageField := default "image" .Context.Site.Params.featuredImageField }}
 {{ $imageValue := index .Context.Params $imageField }}
 
+{{/* 兼容 image 字段为数组或字符串 */}}
+{{ if (and $imageValue (eq (printf "%T" $imageValue) "[]string")) }}
+  {{ $imageValue = index $imageValue 0 }}
+{{ end }}
+
 {{ if $imageValue }}
     <!-- If page has `image` field set -->
     {{ $result = merge $result (dict "exists" true) }}
