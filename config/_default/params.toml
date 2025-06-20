@@ -32,6 +32,9 @@ default = "Licensed under CC BY-NC-ND 4.0"
 
 ## Widgets
 [[widgets.homepage]]
+type = "search"
+
+[[widgets.homepage]]
 type = "archives"
 
 [widgets.homepage.params]
