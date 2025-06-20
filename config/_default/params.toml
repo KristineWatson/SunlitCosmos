@@ -6,7 +6,7 @@ favicon = "/favicon.png"
 
 [footer]
 since = 2024
-customText = "日晞之野 Sunlit Cosmos"
+customText = "Created by Kristine Yuxi"
 
 [dateFormat]
 published = "Jan 02, 2006"
