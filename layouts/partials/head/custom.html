@@ -1,0 +1,10 @@
+{{- $tocDepth := .Site.Params.article.toc_depth | default 6 -}}
+{{- if and (ge $tocDepth 1) (lt $tocDepth 6) -}}
+<style>
+    {{- $liSelector := "#TableOfContents" -}}
+    {{- range seq $tocDepth -}}
+        {{- $liSelector = printf "%s > ul > li" $liSelector -}}
+    {{- end -}}
+    {{ printf "%s > ul { display: none; }" $liSelector | safeCSS }}
+</style>
+{{- end -}}
