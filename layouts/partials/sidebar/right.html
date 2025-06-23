@@ -2,7 +2,6 @@
 {{- $context := .Context -}}
 {{- with (index .Context.Site.Params.widgets $scope) -}}
     <aside class="sidebar right-sidebar sticky">
-        <div style="color:red;">RIGHT SIDEBAR RENDERED</div>
         {{ range $widget := . }}
             {{ if templates.Exists (printf "partials/widget/%s.html" .type) }}
                 <!-- Ensure that the `params` is not nil -->

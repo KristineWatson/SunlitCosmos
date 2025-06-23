@@ -16,6 +16,22 @@ googleAnalytics = 'G-MEASUREMENT_ID'
     [languages.en.params]
       mainSections = ['post']
       sidebar = { emoji = "🌻", subtitle = "Hi! This is Kristine! A sunflower robot, a person who wants to change the world with words, and a psychology student practicing existentialism. Recording stories, interpreting life." }
+      [[languages.en.params.widgets.page]]
+        type = "toc"
+      [[languages.en.params.widgets.page]]
+        type = "search"
+      [[languages.en.params.widgets.page]]
+        type = "archives"
+        [languages.en.params.widgets.page.params]
+          limit = 5
+      [[languages.en.params.widgets.page]]
+        type = "categories"
+        [languages.en.params.widgets.page.params]
+          limit = 10
+      [[languages.en.params.widgets.page]]
+        type = "tag-cloud"
+        [languages.en.params.widgets.page.params]
+          limit = 10
     [languages.en.menu]
       [[languages.en.menu.main]]
         name = 'Home'
@@ -50,6 +66,22 @@ googleAnalytics = 'G-MEASUREMENT_ID'
     [languages.zh-cn.params]
       mainSections = ['post']
       sidebar = { emoji = "🌻", subtitle = "嗨！这里是 Kristine！一个向日葵机器人，一个想用文字改变世界的人，正在践行存在主义的心理学人。记录故事，诠释生命。分享个人成长与泛心理内容，致力于消除性少数与心理障碍的污名化，促进性/别多元与神经多样性的平等。" }
+      [[languages.zh-cn.params.widgets.page]]
+        type = "toc"
+      [[languages.zh-cn.params.widgets.page]]
+        type = "search"
+      [[languages.zh-cn.params.widgets.page]]
+        type = "archives"
+        [languages.zh-cn.params.widgets.page.params]
+          limit = 5
+      [[languages.zh-cn.params.widgets.page]]
+        type = "categories"
+        [languages.zh-cn.params.widgets.page.params]
+          limit = 10
+      [[languages.zh-cn.params.widgets.page]]
+        type = "tag-cloud"
+        [languages.zh-cn.params.widgets.page.params]
+          limit = 10
     [languages.zh-cn.menu]
       [[languages.zh-cn.menu.main]]
         name = '主页'

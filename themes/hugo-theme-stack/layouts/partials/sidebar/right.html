@@ -1,13 +1,14 @@
-{{- $scope := default "homepage" .Scope -}}
 {{- $context := .Context -}}
 {{- $TOCEnabled := $context.Scratch.Get "TOCEnabled" -}}
 {{- $widgets := $context.Site.Params.widgets.page -}}
 {{- if $widgets }}
     <aside class="sidebar right-sidebar sticky">
-        {{/* <div style="color:red;">RIGHT SIDEBAR RENDERED</div> */}}
         {{ range $widget := $widgets }}
-            {{- if and (eq $widget.type "toc") (not $TOCEnabled) -}}
-                {{/* skip TOC if not enabled */}}
+            {{- if eq $widget.type "toc" -}}
+                {{- if $TOCEnabled -}}
+                    {{- $params := default dict $widget.params -}}
+                    {{ partial (printf "widget/%s" $widget.type) (dict "Context" $context "Params" $params) }}
+                {{- end -}}
             {{- else if templates.Exists (printf "partials/widget/%s.html" $widget.type) -}}
                 {{- $params := default dict $widget.params -}}
                 {{ partial (printf "widget/%s" $widget.type) (dict "Context" $context "Params" $params) }}
