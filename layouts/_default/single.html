@@ -31,7 +31,31 @@
     {{ end }}
 
     {{ partial "article/components/related-content" . }}
-     
+
+    <!-- 插入自定义上一篇/下一篇导航按钮 -->
+    {{ $allPosts := where .Site.RegularPages "Type" "post" }}
+    {{ $allPosts := where $allPosts "Date" "ne" nil }}
+    {{ $allPosts := sort $allPosts "Date" "asc" }}
+    {{ $current := . }}
+    {{ $idx := -1 }}
+    {{ range $i, $p := $allPosts }}
+      {{ if eq $p.RelPermalink $current.RelPermalink }}
+        {{ $idx = $i }}
+      {{ end }}
+    {{ end }}
+    <div class="post-nav-wrapper" style="display:flex;justify-content:space-between;margin:2em 0;">
+      {{ if ge $idx 1 }}
+        {{ $prev := index $allPosts (sub $idx 1) }}
+        <a class="post-nav-btn prev" href="{{ $prev.RelPermalink }}">← 上一篇：{{ $prev.Title }}</a>
+      {{ else }}
+        <span></span>
+      {{ end }}
+      {{ if lt $idx (sub (len $allPosts) 1) }}
+        {{ $next := index $allPosts (add $idx 1) }}
+        <a class="post-nav-btn next" href="{{ $next.RelPermalink }}">下一篇：{{ $next.Title }} →</a>
+      {{ end }}
+    </div>
+
     {{ if not (eq .Params.comments false) }}
         {{ partial "comments/include" . }}
     {{ end }}
