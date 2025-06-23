@@ -1,0 +1,154 @@
+baseURL = 'https://SunlitCosmos.com/'
+defaultContentLanguage = 'zh-cn'
+theme = 'hugo-theme-stack'
+summaryLength = 20
+disqusShortname = 'Kristine'
+googleAnalytics = 'G-MEASUREMENT_ID'
+
+[pagination]
+  pagerSize = 5
+
+[languages]
+  [languages.en]
+    languageCode = 'en-us'
+    title = 'Sunlit Cosmos'
+    weight = 1
+    [languages.en.params]
+      mainSections = ['post']
+      sidebar = { emoji = "🌻", subtitle = "Hi! This is Kristine! A sunflower robot, a person who wants to change the world with words, and a psychology student practicing existentialism. Recording stories, interpreting life." }
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = 'Home'
+        pageRef = '/'
+        weight = 10
+        params = { icon = 'home' }
+      [[languages.en.menu.main]]
+        name = 'About'
+        pageRef = '/page/about'
+        weight = 20
+        params = { icon = 'user' }
+      [[languages.en.menu.main]]
+        name = 'Search'
+        pageRef = '/page/search'
+        weight = 30
+        params = { icon = 'search' }
+      [[languages.en.menu.main]]
+        name = 'Archives'
+        pageRef = '/page/archives'
+        weight = 40
+        params = { icon = 'archives' }
+      [[languages.en.menu.main]]
+        name = 'Links'
+        pageRef = '/page/links'
+        weight = 50
+        params = { icon = 'link' }
+
+  [languages.zh-cn]
+    languageCode = 'zh-cn'
+    title = '日晞之野 Sunlit Cosmos'
+    weight = 2
+    [languages.zh-cn.params]
+      mainSections = ['post']
+      sidebar = { emoji = "🌻", subtitle = "嗨！这里是 Kristine！一个向日葵机器人，一个想用文字改变世界的人，正在践行存在主义的心理学人。记录故事，诠释生命。分享个人成长与泛心理内容，致力于消除性少数与心理障碍的污名化，促进性/别多元与神经多样性的平等。" }
+    [languages.zh-cn.menu]
+      [[languages.zh-cn.menu.main]]
+        name = '主页'
+        pageRef = '/'
+        weight = 10
+        params = { icon = 'home' }
+      [[languages.zh-cn.menu.main]]
+        name = '关于我'
+        pageRef = '/page/about'
+        weight = 20
+        params = { icon = 'user' }
+      [[languages.zh-cn.menu.main]]
+        name = '搜索'
+        pageRef = '/page/search'
+        weight = 30
+        params = { icon = 'search' }
+      [[languages.zh-cn.menu.main]]
+        name = '文章归档'
+        pageRef = '/page/archives'
+        weight = 40
+        params = { icon = 'archives' }
+      [[languages.zh-cn.menu.main]]
+        name = '相关链接'
+        pageRef = '/page/links'
+        weight = 50
+        params = { icon = 'link' }
+
+[params]
+  mainSections = ['post']
+  rssFullContent = true
+  favicon = "/sunlit robot 机器人头.png"
+  
+  [params.author]
+    name = "Kristine Yuxi"
+    email = "your-email@example.com"
+    
+  [params.footer]
+    since = 2024
+    customText = '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" /><img alt="Attribution" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" /><img alt="NonCommercial" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" /><img alt="NoDerivs" style="border-width:0;vertical-align:middle;max-width:1.2em;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" /> This site is licensed under a CC BY-NC-ND 4.0 International License.</a>'
+  
+  [params.dateFormat]
+    published = "Jan 02, 2006"
+    lastUpdated = "Jan 02, 2006 15:04 MST"
+
+  [params.sidebar.avatar]
+      enabled = true
+      local = true
+      src = "assets/img/avatar-我是一个向日葵机器人.png"
+
+  [params.article]
+    headingAnchor = false
+    math = false
+    readingTime = true
+    [params.article.license]
+      enabled = true
+      default = "Licensed under CC BY-NC-ND 4.0"
+
+  [params.widgets]
+    [[params.widgets.homepage]]
+      type = "search"
+    [[params.widgets.homepage]]
+      type = "archives"
+      [params.widgets.homepage.params]
+        limit = 5
+    [[params.widgets.homepage]]
+      type = "categories"
+      [params.widgets.homepage.params]
+        limit = 10
+    [[params.widgets.homepage]]
+      type = "tag-cloud"
+      [params.widgets.homepage.params]
+        limit = 10
+    [[params.widgets.page]]
+      type = "toc"
+
+  [params.colorScheme]
+    toggle = true
+    default = "auto"
+    
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+  [markup.highlight]
+    noClasses = false
+
+[permalinks]
+  post = '/:slug/'
+
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = false
+  [[related.indices]]
+    name = 'tags'
+    weight = 100
+  [[related.indices]]
+    name = 'categories'
+    weight = 200
