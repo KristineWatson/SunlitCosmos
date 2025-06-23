@@ -30,9 +30,6 @@
         {{ partial "article/components/links" . }}
     {{ end }}
 
-    {{ partial "article/components/related-content" . }}
-
-    <!-- 插入自定义上一篇/下一篇导航按钮 -->
     {{ $allPosts := where .Site.RegularPages "Type" "post" }}
     {{ $allPosts := where $allPosts "Date" "ne" nil }}
     {{ $allPosts := sort $allPosts "Date" "asc" }}
@@ -55,6 +52,8 @@
         <a class="post-nav-btn next" href="{{ $next.RelPermalink }}">下一篇：{{ $next.Title }} →</a>
       {{ end }}
     </div>
+
+    {{ partial "article/components/related-content" . }}
 
     {{ if not (eq .Params.comments false) }}
         {{ partial "comments/include" . }}
