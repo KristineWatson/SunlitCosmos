@@ -3,10 +3,10 @@
 languageName = "English"
 languagedirection = "ltr"
 title = "Sunlit Cosmos"
-weight = 1
+weight = 2
 
 [zh-cn]
 languageName = "简体中文"
 languagedirection = "ltr"
 title = "日晞之野 Sunlit Cosmos"
-weight = 2
+weight = 1
