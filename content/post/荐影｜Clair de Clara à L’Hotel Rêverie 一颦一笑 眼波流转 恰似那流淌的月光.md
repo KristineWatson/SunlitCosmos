@@ -1,17 +1,17 @@
 ---
-Author: [Kristine Yuxi]
-Caption: 
-Categories: [Causeries 随笔]
-Date: 2025-05-01T09:13:30
+author: [Kristine Yuxi]
+caption: 
+categories: [Causeries 随笔]
+date: 2025-05-01
 date_created: 2025-06-20T06:32:32
-date_modified: 2025-06-23T09:33:51
-Description: 
-Draft: false
-Image: post/image/荐影｜Clair de Clara à L’Hotel Rêverie 一颦一笑 眼波流转 恰似那流淌的月光.jpg
-Link: 
+date_modified: 2025-06-23T10:15:36
+description: 
+draft: false
+image: post/image/荐影｜Clair de Clara à L’Hotel Rêverie 一颦一笑 眼波流转 恰似那流淌的月光.jpg
+link: 
 tags: [Diversity 性多元, File 影片推荐]
-Title: 荐影｜Clair de Clara à L'Hotel Rêverie 一颦一笑 眼波流转 恰似那流淌的月光
-Type: post
+title: 荐影｜Clair de Clara à L'Hotel Rêverie 一颦一笑 眼波流转 恰似那流淌的月光
+type: post
 ---
 
 <center>Letters from Kristine</center>
