@@ -1,16 +1,19 @@
 {{- $scope := default "homepage" .Scope -}}
 {{- $context := .Context -}}
-{{- with (index .Context.Site.Params.widgets $scope) -}}
+{{- $TOCEnabled := $context.Scratch.Get "TOCEnabled" -}}
+{{- $widgets := $context.Site.Params.widgets.page -}}
+{{- if $widgets }}
     <aside class="sidebar right-sidebar sticky">
-        {{ range $widget := . }}
-            {{ if templates.Exists (printf "partials/widget/%s.html" .type) }}
-                <!-- Ensure that the `params` is not nil -->
-                {{- $params := default dict .params -}}
-
-                {{ partial (printf "widget/%s" .type) (dict "Context" $context "Params" $params) }}
-            {{ else }}
-                {{ warnf "Widget %s not found" .type }}
-            {{ end }}
+        {{/* <div style="color:red;">RIGHT SIDEBAR RENDERED</div> */}}
+        {{ range $widget := $widgets }}
+            {{- if and (eq $widget.type "toc") (not $TOCEnabled) -}}
+                {{/* skip TOC if not enabled */}}
+            {{- else if templates.Exists (printf "partials/widget/%s.html" $widget.type) -}}
+                {{- $params := default dict $widget.params -}}
+                {{ partial (printf "widget/%s" $widget.type) (dict "Context" $context "Params" $params) }}
+            {{- else -}}
+                {{ warnf "Widget %s not found" $widget.type }}
+            {{- end -}}
         {{ end }}
     </aside>
-{{ end }}
+{{- end }}

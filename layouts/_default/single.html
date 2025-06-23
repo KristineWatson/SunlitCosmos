@@ -1,26 +1,16 @@
 {{ define "body-class" }}
     article-page
-    {{/* 
-        Enable the right sidebar if
-            - Widget different from 'TOC' is enabled
-            - TOC is enabled and not empty
-    */}}
-    {{- $HasWidgetNotTOC := false -}}
+    {{- $HasWidget := gt (len .Site.Params.widgets.page) 0 -}}
     {{- $TOCWidgetEnabled := false -}}
     {{- range .Site.Params.widgets.page -}}
-        {{- if ne .type "toc" -}}
-            {{ $HasWidgetNotTOC = true -}}
-        {{- else -}}
+        {{- if eq .type "toc" -}}
             {{ $TOCWidgetEnabled = true -}}
         {{- end -}}
     {{- end -}}
-
     {{- $TOCManuallyDisabled := eq .Params.toc false -}}
-    {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled -}}
-    {{- $hasTOC := ge (len .TableOfContents) 100 -}}
-    {{- .Scratch.Set "TOCEnabled" (and $TOCEnabled $hasTOC) -}}
-    
-    {{- .Scratch.Set "hasWidget" (or $HasWidgetNotTOC (and $TOCEnabled $hasTOC)) -}}
+    {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled (ge (len .TableOfContents) 100) -}}
+    {{- .Scratch.Set "TOCEnabled" $TOCEnabled -}}
+    {{- .Scratch.Set "hasWidget" $HasWidget -}}
 {{ end }}
 
 {{ define "main" }}
@@ -43,13 +33,13 @@
     <div class="post-nav-wrapper" style="display:flex;justify-content:space-between;margin:2em 0;">
       {{ if ge $idx 1 }}
         {{ $prev := index $allPosts (sub $idx 1) }}
-        <a class="post-nav-btn prev" href="{{ $prev.RelPermalink }}">← 上一篇：{{ $prev.Title }}</a>
+        <a class="post-nav-btn prev" href="{{ $prev.RelPermalink }}">← {{ $prev.Title }}</a>
       {{ else }}
         <span></span>
       {{ end }}
       {{ if lt $idx (sub (len $allPosts) 1) }}
         {{ $next := index $allPosts (add $idx 1) }}
-        <a class="post-nav-btn next" href="{{ $next.RelPermalink }}">下一篇：{{ $next.Title }} →</a>
+        <a class="post-nav-btn next" href="{{ $next.RelPermalink }}">{{ $next.Title }} →</a>
       {{ end }}
     </div>
 
