@@ -20,11 +20,5 @@ links:
     website: 
     image: icon-微信公众号.png
   
-menu:
-    main: 
-        weight: 4
-        params:
-            icon: link
-
 comments: false
 ---

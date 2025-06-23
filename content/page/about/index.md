@@ -1,18 +1,5 @@
 ---
-title: About me
-description: Hugo, the world's fastest framework for building websites
-date: '2019-02-28'
-aliases:
-  - about-us
-  - about-hugo
-  - contact
-license: CC BY-NC-ND
-lastmod: '2024-10-09'
-menu:
-    main: 
-        weight: 2
-        params:
-            icon: user
+title: 关于我
 ---
 嗨！这里是 Kristine！一个向日葵机器人，一个想用文字改变世界的人，正在践行存在主义的心理学人。记录故事，诠释生命。分享个人成长与泛心理内容，致力于消除性少数与心理障碍的污名化，促进性/别多元与神经多样性的平等。
 
