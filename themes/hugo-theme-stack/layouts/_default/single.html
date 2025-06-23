@@ -1,26 +1,17 @@
 {{ define "body-class" }}
     article-page
-    {{/* 
-        Enable the right sidebar if
-            - Widget different from 'TOC' is enabled
-            - TOC is enabled and not empty
-    */}}
-    {{- $HasWidgetNotTOC := false -}}
+    {{- $HasWidget := gt (len .Site.Params.widgets.page) 0 -}}
     {{- $TOCWidgetEnabled := false -}}
     {{- range .Site.Params.widgets.page -}}
-        {{- if ne .type "toc" -}}
-            {{ $HasWidgetNotTOC = true -}}
-        {{- else -}}
+        {{- if eq .type "toc" -}}
             {{ $TOCWidgetEnabled = true -}}
         {{- end -}}
     {{- end -}}
-
     {{- $TOCManuallyDisabled := eq .Params.toc false -}}
     {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled -}}
     {{- $hasTOC := ge (len .TableOfContents) 100 -}}
     {{- .Scratch.Set "TOCEnabled" (and $TOCEnabled $hasTOC) -}}
-    
-    {{- .Scratch.Set "hasWidget" (or $HasWidgetNotTOC (and $TOCEnabled $hasTOC)) -}}
+    {{- .Scratch.Set "hasWidget" $HasWidget -}}
 {{ end }}
 
 {{ define "main" }}

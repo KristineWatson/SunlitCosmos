@@ -124,6 +124,20 @@ googleAnalytics = 'G-MEASUREMENT_ID'
         limit = 10
     [[params.widgets.page]]
       type = "toc"
+	[[params.widgets.page]]
+      type = "search"
+    [[params.widgets.page]]
+      type = "archives"
+      [params.widgets.page.params]
+        limit = 5
+    [[params.widgets.page]]
+      type = "categories"
+      [params.widgets.page.params]
+        limit = 10
+    [[params.widgets.page]]
+      type = "tag-cloud"
+      [params.widgets.page.params]
+        limit = 10
 
   [params.colorScheme]
     toggle = true
@@ -133,9 +147,9 @@ googleAnalytics = 'G-MEASUREMENT_ID'
   [markup.goldmark.renderer]
     unsafe = true
   [markup.tableOfContents]
-    startLevel = 2
+    startLevel = 1
     endLevel = 4
-    ordered = false
+    ordered = true
   [markup.highlight]
     noClasses = false
 
