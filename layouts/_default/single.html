@@ -55,6 +55,20 @@
 
     {{ partial "article/components/related-content" . }}
 
+    {{/* 最新文章推荐 */}}
+    {{ $posts := where .Site.RegularPages "Type" "post" }}
+    {{ $latest := first 5 (sort $posts "Date" "desc") }}
+    <aside class="related-content--wrapper">
+        <h2 class="section-title">最新文章</h2>
+        <div class="related-content">
+            <div class="flex article-list--tile">
+                {{ range $latest }}
+                    {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "articleList") }}
+                {{ end }}
+            </div>
+        </div>
+    </aside>
+
     {{ if not (eq .Params.comments false) }}
         {{ partial "comments/include" . }}
     {{ end }}
