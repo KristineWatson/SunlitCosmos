@@ -4,40 +4,9 @@
             {{ partial "helper/icon" "hash" }}
         </div>
         <h2 class="widget-title section-title">{{ T "article.tableOfContents" }}</h2>
-        <div class="toc-controls" style="margin-bottom: 8px;">
-            <button type="button" class="toc-btn" data-depth="1">只显示 h1</button>
-            <button type="button" class="toc-btn" data-depth="2">显示 h1+h2</button>
-            <button type="button" class="toc-btn" data-depth="3">显示 h1+h2+h3</button>
-            <button type="button" class="toc-btn" data-depth="all">全部</button>
-        </div>
-        <div class="widget--toc custom-toc">
+        
+        <div class="widget--toc">
             {{ .Context.TableOfContents }}
         </div>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const toc = document.querySelector('.custom-toc .table-of-contents');
-          if (!toc) return;
-          const buttons = document.querySelectorAll('.toc-controls .toc-btn');
-          buttons.forEach(btn => {
-            btn.addEventListener('click', function() {
-              const depth = this.getAttribute('data-depth');
-              toc.querySelectorAll('li').forEach(li => {
-                const match = li.className.match(/toc-level-(\d)/);
-                if (!match) return;
-                const level = parseInt(match[1]);
-                if (depth === '1') {
-                  li.style.display = (level === 1) ? '' : 'none';
-                } else if (depth === '2') {
-                  li.style.display = (level === 1 || level === 2) ? '' : 'none';
-                } else if (depth === '3') {
-                  li.style.display = (level === 1 || level === 2 || level === 3) ? '' : 'none';
-                } else {
-                  li.style.display = '';
-                }
-              });
-            });
-          });
-        });
-        </script>
     </section>
 {{ end }}

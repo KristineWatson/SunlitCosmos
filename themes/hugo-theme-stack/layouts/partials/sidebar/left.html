@@ -100,11 +100,4 @@
             </ol>
         </li>
     </ol>
-
-    {{- $widgets := .Site.Params.widgets.left -}}
-    {{- if $widgets }}
-      {{- range $widgets }}
-        {{ partial (printf "widget/%s.html" .) $ }}
-      {{- end }}
-    {{- end }}
 </aside>

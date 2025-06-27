@@ -7,3 +7,33 @@
     max-height: none !important;
     overflow: visible ;
   }
+
+.menu-social-item.wechat-icon {
+  position: relative;
+}
+
+.menu-social-item.wechat-icon .wechat-qrcode-popup {
+  display: none;
+  position: absolute;
+  left: 120%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 100;
+  width: 140px;
+}
+
+.menu-social-item.wechat-icon:hover .wechat-qrcode-popup,
+.menu-social-item.wechat-icon:focus-within .wechat-qrcode-popup {
+  display: block;
+}
+
+.menu-social-item.wechat-icon .wechat-qrcode-popup img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}

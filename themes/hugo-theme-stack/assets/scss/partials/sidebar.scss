@@ -197,13 +197,3 @@
         }
     }
 }
-
-// 卡片样式增强，确保左侧 info-widget 和 menu-widget 100%有卡片外观
-.info-widget,
-.menu-widget {
-  background: var(--card-background);
-  border-radius: 1.2em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  margin-bottom: 1.5em;
-  padding: 1.5em 1.2em;
-}
