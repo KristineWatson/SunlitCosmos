@@ -2,7 +2,6 @@ baseURL = 'https://SunlitCosmos.com/'
 defaultContentLanguage = 'zh-cn'
 theme = 'hugo-theme-stack'
 summaryLength = 20
-disqusShortname = 'Kristine'
 googleAnalytics = 'G-MEASUREMENT_ID'
 
 [pagination]

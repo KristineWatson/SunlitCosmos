@@ -74,14 +74,21 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "giscus"
 
-[comments.disqusjs]
-shortname = ""
-apiUrl = ""
-apiKey = ""
-admin = ""
-adminLabel = ""
+[comments.giscus]
+repo = "KristineWatson/360--SunlitCosmos-stack"
+repoID = "R_kgDOO-Rz8w"
+category = "General"
+categoryID = "DIC_kwDOO-Rz884CsKT1"
+mapping = "pathname"
+lightTheme = "preferred_color_scheme"
+darkTheme = "preferred_color_scheme"
+reactionsEnabled = 1
+emitMetadata = 0
+inputPosition = "top"
+lang = "zh-CN"
+strict = 0
 
 [comments.utterances]
 repo = ""
@@ -123,17 +130,6 @@ lang = ""
 defaultHomeserverUrl = "https://matrix.cactus.chat:8448"
 serverName = "cactus.chat"
 siteName = ""
-
-[comments.giscus]
-repo = ""
-repoID = ""
-category = ""
-categoryID = ""
-mapping = ""
-lightTheme = ""
-darkTheme = ""
-reactionsEnabled = 1
-emitMetadata = 0
 
 [comments.gitalk]
 owner = ""
