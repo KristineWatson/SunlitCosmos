@@ -3,9 +3,12 @@
 */
 
 .sidebar.left-sidebar {
+    position: sticky;
+    top: 2rem;
     height: auto !important;
-    max-height: none !important;
-    overflow: visible ;
+    max-height: calc(100vh - 2rem) !important;
+    overflow: auto;
+    z-index: 100;
 }
 
 .menu-social-item.wechat-icon {
