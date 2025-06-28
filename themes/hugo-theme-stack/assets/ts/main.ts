@@ -91,7 +91,10 @@ let Stack = {
             });
         });
 
-        new StackColorScheme(document.getElementById('dark-mode-toggle'));
+        // 遍历所有暗色模式切换按钮（桌面和移动端），为每个都创建StackColorScheme实例
+        document.querySelectorAll('#dark-mode-toggle').forEach(el => {
+            new StackColorScheme(el as HTMLElement);
+        });
     }
 }
 

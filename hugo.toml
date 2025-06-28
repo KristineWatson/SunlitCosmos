@@ -228,7 +228,11 @@ googleAnalytics = 'G-MEASUREMENT_ID'
   [params.colorScheme]
     toggle = true
     default = "auto"
-    
+    # 支持三种模式：
+    # - "auto": 自动根据用户设备系统偏好切换
+    # - "light": 强制使用亮色模式
+    # - "dark": 强制使用暗色模式
+
 [markup]
   [markup.goldmark.renderer]
     unsafe = true

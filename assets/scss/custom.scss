@@ -579,3 +579,57 @@
     padding-top: 350px !important;
   }
 }
+
+// 确保暗色模式切换按钮可见且可点击
+#dark-mode-toggle {
+  cursor: pointer !important;
+  user-select: none;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: scale(0.95) translateY(0);
+  }
+  
+  // 确保图标可见
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// 移动端菜单中的暗色模式切换按钮
+#mobile-menu-container #dark-mode-toggle {
+  cursor: pointer !important;
+  user-select: none;
+  transition: all 0.2s ease;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: scale(0.95) translateY(0);
+  }
+  
+  // 确保图标可见
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  // 确保文字可见
+  span {
+    color: var(--body-text-color);
+    font-size: 1.4rem;
+  }
+}
