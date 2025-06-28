@@ -193,6 +193,37 @@ googleAnalytics = 'G-MEASUREMENT_ID'
       enabled = true
       default = "Licensed under CC BY-NC-ND 4.0"
 
+  # 启用评论系统
+  [params.comments]
+    enabled = true
+    provider = "giscus"
+    
+    [params.comments.giscus]
+      # 你的GitHub仓库，格式：owner/repo-name
+      repo = "KristineWatson/360--SunlitCosmos-stack"
+      # 仓库ID，从 giscus.app 获取
+      repoID = "R_kgDOO-Rz8w"
+      # Discussion分类名称
+      category = "General"
+      # 分类ID，从 giscus.app 获取
+      categoryID = "DIC_kwDOO-Rz884CsKT1"
+      # 页面与discussion的映射关系：pathname, url, title, og:title, specific, number
+      mapping = "pathname"
+      # 严格匹配标题
+      strict = 0
+      # 启用反应
+      reactionsEnabled = 1
+      # 输出元数据
+      emitMetadata = 0
+      # 评论框位置：top, bottom
+      inputPosition = "top"
+      # 语言
+      lang = "zh-CN"
+      # 亮色主题
+      lightTheme = "preferred_color_scheme"
+      # 暗色主题
+      darkTheme = "preferred_color_scheme"
+
   [params.widgets]
     [[params.widgets.homepage]]
       type = "search"
