@@ -87,4 +87,61 @@ window.addEventListener('load', function() {
 // 监听主题变化事件
 window.addEventListener('onColorSchemeChange', function(e: CustomEvent) {
     console.log('=== Color scheme changed event fired ===', e.detail);
+});
+
+// 二维码弹出框智能定位
+function initQRCodePositioning() {
+  const qrCodeIcons = document.querySelectorAll('.menu-social-item.wechat-icon, .menu-social-item.xhs-icon');
+  
+  qrCodeIcons.forEach(icon => {
+    icon.addEventListener('mouseenter', function() {
+      const popup = this.querySelector('.wechat-qrcode-popup, .xhs-popup');
+      if (!popup) return;
+      
+      // 获取图标和弹出框的位置信息
+      const iconRect = this.getBoundingClientRect();
+      const popupRect = popup.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      
+      // 计算弹出框的宽度（包括padding）
+      const popupWidth = 170; // 与CSS中的宽度一致
+      
+      // 计算图标中心点
+      const iconCenterX = iconRect.left + iconRect.width / 2;
+      
+      // 计算弹出框的理想位置（居中于图标）
+      let idealLeft = iconCenterX - popupWidth / 2;
+      
+      // 检查是否会超出右边界
+      if (idealLeft + popupWidth > viewportWidth - 20) {
+        // 太靠右，向左弹出
+        popup.style.left = 'auto';
+        popup.style.right = '0';
+        popup.style.transform = 'none';
+      } else if (idealLeft < 20) {
+        // 太靠左，向右弹出
+        popup.style.left = '0';
+        popup.style.right = 'auto';
+        popup.style.transform = 'none';
+      } else {
+        // 在中间，居中显示
+        popup.style.left = '50%';
+        popup.style.right = 'auto';
+        popup.style.transform = 'translateX(-50%)';
+      }
+    });
+  });
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+  initQRCodePositioning();
+});
+
+// 窗口大小改变时重新计算
+let resizeTimer: number;
+window.addEventListener('resize', function() {
+  // 延迟执行，避免频繁触发
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(initQRCodePositioning, 100);
 }); 

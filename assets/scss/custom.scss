@@ -37,26 +37,27 @@
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 10px;
+  padding: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10000;
   visibility: hidden;
   opacity: 0 !important;
   transform: none;
   pointer-events: none;
+  width: 120px;
   
   img {
-    width: 150px;
+    width: 100px;
     height: auto;
     display: block;
   }
 }
 
 .wechat-qrcode-popup {
-  left: 0;
   top: 100%;
-  transform: none;
   margin-top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .menu-social-item.wechat-icon:hover .wechat-qrcode-popup {
@@ -76,26 +77,27 @@
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 10px;
+  padding: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10000;
   visibility: hidden;
   opacity: 0 !important;
   transform: none;
   pointer-events: none;
+  width: 120px;
   
   img {
-    width: 150px;
+    width: 100px;
     height: auto;
     display: block;
   }
 }
 
 .xhs-popup {
-  left: 0;
   top: 100%;
-  transform: none;
   margin-top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .menu-social-item.xhs-icon:hover .xhs-popup {
