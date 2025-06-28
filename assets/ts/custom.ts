@@ -171,15 +171,16 @@ function initMobileScrollInteraction() {
       // 当滚动距离超过触发偏移量时，开始同步滚动
       if (scrollTop > triggerOffset) {
         // 计算left-sidebar的移动距离，与页面滚动完全同步
-        const moveDistance = Math.min(scrollTop - triggerOffset, sidebarHeight);
-        const translateY = -moveDistance;
-        const opacity = Math.max(0, 1 - moveDistance / sidebarHeight);
+        // 使用精确的1:1比例计算，确保移动距离与滚动距离完全一致
+        const effectiveScrollDistance = scrollTop - triggerOffset;
+        const translateY = -effectiveScrollDistance;
+        const opacity = Math.max(0, 1 - effectiveScrollDistance / sidebarHeight);
         
         leftSidebar.style.transform = `translateY(${translateY}px)`;
         leftSidebar.style.opacity = opacity.toString();
         
         // 当left-sidebar完全移出视口时，显示topbar
-        if (moveDistance >= sidebarHeight) {
+        if (effectiveScrollDistance >= sidebarHeight) {
           topbar.classList.add('show-topbar');
           leftSidebar.classList.add('scrolling-up');
           mainContainer?.classList.add('sidebar-hidden');
@@ -202,9 +203,9 @@ function initMobileScrollInteraction() {
       // 当滚动回到触发偏移量以下时，开始恢复left-sidebar
       if (scrollTop <= triggerOffset) {
         // 计算left-sidebar的恢复距离，与页面滚动完全同步
-        const moveDistance = Math.max(0, triggerOffset - scrollTop);
-        const translateY = -moveDistance;
-        const opacity = Math.max(0, 1 - moveDistance / sidebarHeight);
+        const effectiveScrollDistance = Math.max(0, triggerOffset - scrollTop);
+        const translateY = -effectiveScrollDistance;
+        const opacity = Math.max(0, 1 - effectiveScrollDistance / sidebarHeight);
         
         leftSidebar.style.transform = `translateY(${translateY}px)`;
         leftSidebar.style.opacity = opacity.toString();
