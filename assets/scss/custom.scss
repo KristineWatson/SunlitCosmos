@@ -210,9 +210,17 @@
   box-shadow: var(--shadow-l1);
   transform: translateY(0);
   opacity: 1;
+  transition: none !important;
   
   @media (max-width: 768px) {
     display: block;
+  }
+  
+  // 当向上滚动时，left-sidebar向上移动
+  &.scrolling-up {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: none !important;
   }
   
   .mobile-sidebar-content {
@@ -312,9 +320,16 @@
   gap: 3rem;
   transform: translateY(-100%);
   opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   
   @media (max-width: 768px) {
     display: flex;
+  }
+  
+  // 当left-sidebar完全滚动出视口后，topbar显示
+  &.show-topbar {
+    transform: translateY(0);
+    opacity: 1;
   }
   
   @media (max-width: 480px) {
@@ -651,6 +666,11 @@
 @media (max-width: 768px) {
   .main-container {
     padding-top: 350px !important;
+    transition: padding-top 0.3s ease;
+  }
+  
+  .main-container.sidebar-hidden {
+    padding-top: 76px !important;
   }
 }
 
