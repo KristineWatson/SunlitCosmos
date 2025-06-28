@@ -1,9 +1,16 @@
+// 引入Giscus自定义主题
+import { initGiscusTheme, addSunflowerStyles } from './giscus-custom';
+
 // 自定义JavaScript - 测试暗色模式切换功能
 console.log('=== Custom script loaded ===');
 
 // 等待页面完全加载
 window.addEventListener('load', function() {
     console.log('=== Page fully loaded ===');
+    
+    // 初始化Giscus主题
+    addSunflowerStyles();
+    initGiscusTheme();
     
     // 查找暗色模式切换按钮
     const darkModeToggle = document.getElementById('dark-mode-toggle');

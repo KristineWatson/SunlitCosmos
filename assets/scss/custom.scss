@@ -2,6 +2,9 @@
     You can add your own custom styles here.
 */
 
+// 引入Giscus自定义样式
+@import "giscus-custom";
+
 .sidebar.left-sidebar {
     position: sticky;
     top: 2rem;
@@ -880,4 +883,194 @@
       }
     }
   }
+}
+
+// Giscus 评论系统自定义样式 - 向日葵主题
+.giscus {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  
+  // 添加向日葵主题类
+  &.sunflower-theme {
+    --giscus-primary: #4caf50;
+    --giscus-secondary: #ff9800;
+    --giscus-accent: #ffeb3b;
   }
+  
+  .giscus-frame {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--body-background);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // 评论区域标题
+  &::before {
+    content: "🌻 评论";
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--link-color);
+  }
+}
+
+// 亮色主题
+[data-theme="light"] .giscus {
+  .giscus-frame {
+    background: #ffffff;
+    border-color: #e1e5e9;
+  }
+}
+
+// 暗色主题
+[data-theme="dark"] .giscus {
+  .giscus-frame {
+    background: #1a1a1a;
+    border-color: #333;
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .giscus {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    
+    .giscus-frame {
+      border-radius: 8px;
+    }
+    
+    &::before {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+
+// 加载状态样式
+.giscus-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--body-text-color);
+  font-style: italic;
+  
+  &::before {
+    content: "🌻";
+    margin-right: 0.5rem;
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// 评论数量显示
+.giscus-comment-count {
+  color: var(--body-text-color);
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  
+  &::before {
+    content: "💭 ";
+  }
+}
+
+// 评论分隔线
+.giscus-comment-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 1.5rem 0;
+}
+
+// 评论作者名称样式
+.giscus-comment-author {
+  color: var(--link-color);
+  font-weight: 600;
+}
+
+// 评论时间样式
+.giscus-comment-time {
+  color: var(--body-text-color);
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+// 评论内容样式
+.giscus-comment-content {
+  color: var(--body-text-color);
+  line-height: 1.6;
+  
+  p {
+    margin-bottom: 0.8rem;
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+  }
+  
+  code {
+    background: var(--code-bg);
+    color: var(--code-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+  
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+}
+
+// 反应按钮样式
+.giscus-reaction-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin: 0 4px;
+  color: var(--body-text-color);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--link-color);
+    color: white;
+    border-color: var(--link-color);
+    transform: translateY(-1px);
+  }
+  
+  &.active {
+    background: var(--link-color);
+    color: white;
+    border-color: var(--link-color);
+  }
+}
