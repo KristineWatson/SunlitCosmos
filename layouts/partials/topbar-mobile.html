@@ -1,4 +1,63 @@
-<nav class="mobile-topbar">
+<!-- Mobile Scrollable Left Sidebar (State 2) -->
+<aside class="mobile-left-sidebar" id="mobile-left-sidebar">
+  <div class="mobile-sidebar-content">
+    {{ with .Site.Params.sidebar.avatar }}
+      {{ if (default true .enabled) }}
+        <figure class="site-avatar">
+          <a href="{{ $.Site.BaseURL | relLangURL }}">
+            {{ if not .local }}
+              <img src="{{ .src }}" width="80" height="80" class="site-logo" loading="lazy" alt="Avatar">
+            {{ else }}
+              {{ $avatar := resources.Get (.src) }}
+              {{ if $avatar }}
+                {{ $avatarResized := $avatar.Resize "160x" }}
+                <img src="{{ $avatarResized.RelPermalink }}" width="80" height="80" class="site-logo" loading="lazy" alt="Avatar">
+              {{ else }}
+                {{ errorf "Failed loading avatar from %q" . }}
+              {{ end }}
+            {{ end }}
+          </a>
+          {{ with $.Site.Params.sidebar.emoji }}
+            <span class="emoji">{{ . }}</span>
+          {{ end }}
+        </figure>
+      {{ end }}
+    {{ end }}
+    
+    <div class="site-meta">
+      <h1 class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
+      <h2 class="site-description">{{ .Site.Params.sidebar.subtitle }}</h2>
+    </div>
+
+    {{- with .Site.Menus.social -}}
+      <ol class="menu-social">
+        {{ range . }}
+          <li class="menu-social-item {{ if eq .Name "微信公众号" }}wechat-icon{{ end }}">
+            <a 
+              href='{{ .URL }}'
+              {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+              {{ with .Name }}title="{{ . }}"{{ end }}
+              rel="me"
+            >
+              {{ $icon := default "link" .Params.Icon }}
+              {{ with $icon }}
+                {{ partial "helper/icon" . }}
+              {{ end }}
+            </a>
+            {{ if eq .Name "微信公众号" }}
+              <div class="wechat-qrcode-popup">
+                <img src="/icon-微信公众号.png" alt="微信公众号二维码" />
+              </div>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ol>
+    {{- end -}}
+  </div>
+</aside>
+
+<!-- Mobile Fixed Topbar (State 1) -->
+<nav class="mobile-topbar" id="mobile-topbar">
   <div class="mobile-topbar__left">
     {{ with .Site.Params.sidebar.avatar }}
       {{ if (default true .enabled) }}
@@ -46,11 +105,13 @@
         {{ end }}
       </ol>
     {{- end -}}
-    <button class="mobile-topbar__menu" id="mobile-menu-toggle" aria-label="{{ T `toggleMenu` }}">
-      <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-    </button>
   </div>
 </nav>
+
+<!-- Fixed Menu Button (Always visible) -->
+<button class="mobile-fixed-menu-button" id="mobile-menu-toggle" aria-label="{{ T `toggleMenu` }}">
+  <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
 
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>

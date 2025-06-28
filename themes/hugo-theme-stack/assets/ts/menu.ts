@@ -86,28 +86,32 @@ export default function () {
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const mobileMenuContainer = document.getElementById('mobile-menu-container');
     
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', () => {
-            if (mobileMenuContainer.classList.contains('transiting')) return;
-            document.body.classList.toggle('show-menu');
-            slideToggle(mobileMenuContainer, 300);
-            mobileMenuToggle.classList.toggle('is-active');
-            
-            // Toggle overlay with animation
-            if (mobileMenuOverlay) {
-                if (document.body.classList.contains('show-menu')) {
-                    mobileMenuOverlay.style.display = 'block';
-                    mobileMenuOverlay.style.height = '100vh';
-                    setTimeout(() => mobileMenuOverlay.classList.add('show'), 10);
-                } else {
-                    mobileMenuOverlay.classList.remove('show');
-                    setTimeout(() => {
-                        mobileMenuOverlay.style.display = 'none';
-                        mobileMenuOverlay.style.height = 'auto';
-                    }, 300);
-                }
+    const toggleMobileMenu = () => {
+        if (mobileMenuContainer.classList.contains('transiting')) return;
+        document.body.classList.toggle('show-menu');
+        slideToggle(mobileMenuContainer, 300);
+        
+        // Toggle menu button
+        if (mobileMenuToggle) mobileMenuToggle.classList.toggle('is-active');
+        
+        // Toggle overlay with animation
+        if (mobileMenuOverlay) {
+            if (document.body.classList.contains('show-menu')) {
+                mobileMenuOverlay.style.display = 'block';
+                mobileMenuOverlay.style.height = '100vh';
+                setTimeout(() => mobileMenuOverlay.classList.add('show'), 10);
+            } else {
+                mobileMenuOverlay.classList.remove('show');
+                setTimeout(() => {
+                    mobileMenuOverlay.style.display = 'none';
+                    mobileMenuOverlay.style.height = 'auto';
+                }, 300);
             }
-        });
+        }
+    };
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     }
     
     // Close menu when clicking overlay
@@ -116,9 +120,9 @@ export default function () {
             if (mobileMenuContainer.classList.contains('transiting')) return;
             document.body.classList.remove('show-menu');
             slideToggle(mobileMenuContainer, 300);
-            if (mobileMenuToggle) {
-                mobileMenuToggle.classList.remove('is-active');
-            }
+            
+            // Remove active state from menu button
+            if (mobileMenuToggle) mobileMenuToggle.classList.remove('is-active');
             
             // Hide overlay with animation
             mobileMenuOverlay.classList.remove('show');
@@ -127,5 +131,57 @@ export default function () {
                 mobileMenuOverlay.style.height = 'auto';
             }, 300);
         });
+    }
+
+    // Mobile scroll-based topbar switching
+    const mobileLeftSidebar = document.getElementById('mobile-left-sidebar');
+    const mobileTopbar = document.getElementById('mobile-topbar');
+    
+    if (mobileLeftSidebar && mobileTopbar) {
+        let lastScrollTop = 0;
+        let animationFrameId: number | null = null;
+        const scrollThreshold = 150; // Total distance for full transition
+        const transitionRange = 100; // Range over which transition happens
+        
+        const updateTopbarState = (scrollTop: number) => {
+            // Calculate progress (0 to 1) based on scroll position
+            const progress = Math.max(0, Math.min(1, (scrollTop - 50) / transitionRange));
+            
+            // Apply transforms based on progress
+            if (mobileLeftSidebar) {
+                const translateY = -100 * progress;
+                const opacity = 1 - progress;
+                mobileLeftSidebar.style.transform = `translateY(${translateY}%)`;
+                mobileLeftSidebar.style.opacity = opacity.toString();
+            }
+            
+            if (mobileTopbar) {
+                const translateY = -100 * (1 - progress);
+                const opacity = progress;
+                mobileTopbar.style.transform = `translateY(${translateY}%)`;
+                mobileTopbar.style.opacity = opacity.toString();
+            }
+        };
+        
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Cancel previous animation frame
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            
+            // Schedule update for next frame
+            animationFrameId = requestAnimationFrame(() => {
+                updateTopbarState(scrollTop);
+            });
+            
+            lastScrollTop = scrollTop;
+        };
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Initial state
+        updateTopbarState(0);
     }
 }
