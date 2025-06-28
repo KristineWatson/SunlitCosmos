@@ -80,4 +80,52 @@ export default function () {
             toggleMenu.classList.toggle('is-active');
         });
     }
+
+    // Mobile topbar menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            if (mobileMenuContainer.classList.contains('transiting')) return;
+            document.body.classList.toggle('show-menu');
+            slideToggle(mobileMenuContainer, 300);
+            mobileMenuToggle.classList.toggle('is-active');
+            
+            // Toggle overlay with animation
+            if (mobileMenuOverlay) {
+                if (document.body.classList.contains('show-menu')) {
+                    mobileMenuOverlay.style.display = 'block';
+                    mobileMenuOverlay.style.height = '100vh';
+                    setTimeout(() => mobileMenuOverlay.classList.add('show'), 10);
+                } else {
+                    mobileMenuOverlay.classList.remove('show');
+                    setTimeout(() => {
+                        mobileMenuOverlay.style.display = 'none';
+                        mobileMenuOverlay.style.height = 'auto';
+                    }, 300);
+                }
+            }
+        });
+    }
+    
+    // Close menu when clicking overlay
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', () => {
+            if (mobileMenuContainer.classList.contains('transiting')) return;
+            document.body.classList.remove('show-menu');
+            slideToggle(mobileMenuContainer, 300);
+            if (mobileMenuToggle) {
+                mobileMenuToggle.classList.remove('is-active');
+            }
+            
+            // Hide overlay with animation
+            mobileMenuOverlay.classList.remove('show');
+            setTimeout(() => {
+                mobileMenuOverlay.style.display = 'none';
+                mobileMenuOverlay.style.height = 'auto';
+            }, 300);
+        });
+    }
 }

@@ -34,12 +34,12 @@ googleAnalytics = 'G-MEASUREMENT_ID'
           limit = 10
     [languages.en.menu]
       [[languages.en.menu.main]]
-        name = 'Home'
-        pageRef = '/'
-        weight = 10
+		name = 'Home'
+		pageRef = '/'
+		weight = 10
         params = { icon = 'home' }
       [[languages.en.menu.main]]
-        name = 'About'
+		name = 'About'
         pageRef = '/page/about'
         weight = 20
         params = { icon = 'user' }
@@ -145,7 +145,7 @@ googleAnalytics = 'G-MEASUREMENT_ID'
       [[languages.zh-cn.menu.social]]
         name = '小红书'
         url = 'https://www.xiaohongshu.com/user/your-xiaohongshu-id'
-        weight = 20
+		weight = 20
         params = { icon = 'brand-rednote', newTab = true }
       [[languages.zh-cn.menu.social]]
         name = 'RSS订阅'
