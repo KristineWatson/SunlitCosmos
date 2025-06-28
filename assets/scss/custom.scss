@@ -492,13 +492,14 @@
 .mobile-menu-container {
   display: none;
   position: fixed;
-  top: 56px;
+  top: 0;
   left: 0;
   width: 100vw;
   background: var(--body-background);
   z-index: 160;
   overflow: hidden;
   padding: 2rem;
+  padding-top: 76px; // 56px topbar height + 20px padding
   box-shadow: var(--shadow-l1);
   transition: height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
   
