@@ -6,7 +6,7 @@
     height: auto !important;
     max-height: none !important;
     overflow: visible ;
-  }
+}
 
 .menu-social-item.wechat-icon {
   position: relative;
@@ -36,4 +36,81 @@
   width: 120px;
   height: 120px;
   display: block;
+}
+
+.table-of-contents .toc-level-3,
+.table-of-contents .toc-level-4,
+.table-of-contents .toc-level-5,
+.table-of-contents .toc-level-6 {
+  display: none;
+}
+
+:root {
+  --body-background: #fff;
+  --body-text-color: #222;
+  --heading-color: #2d3748;
+  --heading2-color: #4a556b;
+  --heading3-color: #66788d;
+  --link-color: #0078e7;
+  --link-hover-color: #4caf50;
+  --blockquote-bg: #f6f6f6;
+  --blockquote-border: #4caf50;
+  --blockquote-color: #555;
+  --code-bg: #f6f8fa;
+  --code-color: #eb5757;
+  --table-bg: #fff;
+  --table-border: #eee;
+}
+[data-theme="dark"] {
+  --body-background: #181818;
+  --body-text-color: #eee;
+  --heading-color: #fff;
+  --heading2-color: #b0b0b0;
+  --heading3-color: #aaa;
+  --link-color: #8ecfff;
+  --link-hover-color: #4caf50;
+  --blockquote-bg: #232323;
+  --blockquote-border: #4caf50;
+  --blockquote-color: #aaa;
+  --code-bg: #232323;
+  --code-color: #ffb86c;
+  --table-bg: #232323;
+  --table-border: #444;
+}
+
+.article-content, .markdown-body, .prose {
+  background: var(--body-background);
+  color: var(--body-text-color);
+}
+.article-content h1, .markdown-body h1, .prose h1 {
+  color: var(--heading-color);
+}
+.article-content h2, .markdown-body h2, .prose h2 {
+  color: var(--heading2-color);
+}
+.article-content h3, .markdown-body h3, .prose h3 {
+  color: var(--heading3-color);
+}
+.article-content a, .markdown-body a, .prose a {
+  color: var(--link-color);
+}
+.article-content a:hover, .markdown-body a:hover, .prose a:hover {
+  color: var(--link-hover-color);
+}
+.article-content blockquote, .markdown-body blockquote, .prose blockquote {
+  background: var(--blockquote-bg);
+  border-left: 4px solid var(--blockquote-border);
+  color: var(--blockquote-color);
+}
+.article-content pre, .markdown-body pre, .prose pre,
+.article-content code, .markdown-body code, .prose code {
+  background: var(--code-bg);
+  color: var(--code-color);
+}
+.article-content table, .markdown-body table, .prose table {
+  background: var(--table-bg);
+}
+.article-content th, .markdown-body th, .prose th,
+.article-content td, .markdown-body td, .prose td {
+  border: 1px solid var(--table-border);
 }
