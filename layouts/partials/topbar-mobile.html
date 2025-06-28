@@ -32,7 +32,7 @@
     {{- with .Site.Menus.social -}}
       <ol class="menu-social">
         {{ range . }}
-          <li class="menu-social-item {{ if eq .Name "微信公众号" }}wechat-icon{{ end }}">
+          <li class="menu-social-item {{ if eq .Name "微信公众号" }}wechat-icon{{ end }}{{ if or (eq .Name "小红书") (eq .Name "Xiaohongshu") }}xhs-icon{{ end }}">
             <a 
               href='{{ .URL }}'
               {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
@@ -47,6 +47,11 @@
             {{ if eq .Name "微信公众号" }}
               <div class="wechat-qrcode-popup">
                 <img src="/icon-微信公众号.png" alt="微信公众号二维码" />
+              </div>
+            {{ end }}
+            {{ if or (eq .Name "小红书") (eq .Name "Xiaohongshu") }}
+              <div class="xhs-popup">
+                <img src="/xhs-unixy.PNG" alt="小红书主页" />
               </div>
             {{ end }}
           </li>
@@ -84,7 +89,7 @@
     {{- with .Site.Menus.social -}}
       <ol class="menu-social">
         {{ range . }}
-          <li class="menu-social-item {{ if eq .Name "微信公众号" }}wechat-icon{{ end }}">
+          <li class="menu-social-item {{ if eq .Name "微信公众号" }}wechat-icon{{ end }}{{ if or (eq .Name "小红书") (eq .Name "Xiaohongshu") }}xhs-icon{{ end }}">
             <a 
               href='{{ .URL }}'
               {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
@@ -99,6 +104,11 @@
             {{ if eq .Name "微信公众号" }}
               <div class="wechat-qrcode-popup">
                 <img src="/icon-微信公众号.png" alt="微信公众号二维码" />
+              </div>
+            {{ end }}
+            {{ if or (eq .Name "小红书") (eq .Name "Xiaohongshu") }}
+              <div class="xhs-popup">
+                <img src="/xhs-unixy.PNG" alt="小红书主页" />
               </div>
             {{ end }}
           </li>

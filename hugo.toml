@@ -61,13 +61,13 @@ googleAnalytics = 'G-MEASUREMENT_ID'
 
       # 社交媒体菜单（英文）
       [[languages.en.menu.social]]
-        name = 'Medium'
-        url = 'https://medium.com/@your-medium-id'
+        name = 'WeChat Official Account'
+        url = 'https://mp.weixin.qq.com/s/your-wechat-article-id'
         weight = 10
-        params = { icon = 'brand-medium', newTab = true }
+        params = { icon = '微信公众号', newTab = true }
       [[languages.en.menu.social]]
         name = 'Xiaohongshu'
-        url = 'https://www.xiaohongshu.com/user/your-xiaohongshu-id'
+        url = 'https://www.xiaohongshu.com/user/profile/5efdc041000000000101de44?xsec_token=&xsec_source=pc_note'
         weight = 20
         params = { icon = 'brand-rednote', newTab = true }
       [[languages.en.menu.social]]
@@ -76,15 +76,15 @@ googleAnalytics = 'G-MEASUREMENT_ID'
         weight = 30
         params = { icon = 'brand-rss', newTab = false }
       [[languages.en.menu.social]]
-        name = 'WeChat Official Account'
-        url = 'https://mp.weixin.qq.com/s/your-wechat-article-id'
-        weight = 40
-        params = { icon = '微信公众号', newTab = true }
-      [[languages.en.menu.social]]
         name = 'Substack'
         url = 'https://your-substack.substack.com/'
-        weight = 50
+        weight = 40
         params = { icon = 'brand-substack', newTab = true }
+      [[languages.en.menu.social]]
+        name = 'Medium'
+        url = 'https://medium.com/@your-medium-id'
+        weight = 50
+        params = { icon = 'brand-medium', newTab = true }
 
   [languages.zh-cn]
     languageCode = 'zh-cn'
@@ -138,13 +138,13 @@ googleAnalytics = 'G-MEASUREMENT_ID'
 
       # 社交媒体菜单（中文）
       [[languages.zh-cn.menu.social]]
-        name = 'Medium 媒体'
-        url = 'https://medium.com/@your-medium-id'
+        name = '微信公众号'
+        url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIxMTE2MjIxMA==&action=getalbum&album_id=3455097328405790722#wechat_redirect'
         weight = 10
-        params = { icon = 'brand-medium', newTab = true }
+        params = { icon = '微信公众号', newTab = true }
       [[languages.zh-cn.menu.social]]
         name = '小红书'
-        url = 'https://www.xiaohongshu.com/user/your-xiaohongshu-id'
+        url = 'https://www.xiaohongshu.com/user/profile/5efdc041000000000101de44?xsec_token=&xsec_source=pc_note'
 		weight = 20
         params = { icon = 'brand-rednote', newTab = true }
       [[languages.zh-cn.menu.social]]
@@ -153,15 +153,15 @@ googleAnalytics = 'G-MEASUREMENT_ID'
         weight = 30
         params = { icon = 'brand-rss', newTab = false }
       [[languages.zh-cn.menu.social]]
-        name = '微信公众号'
-        url = 'https://mp.weixin.qq.com/s/your-wechat-article-id'
-        weight = 40
-        params = { icon = '微信公众号', newTab = true }
-      [[languages.zh-cn.menu.social]]
         name = 'Substack'
-        url = 'https://your-substack.substack.com/'
-        weight = 50
+        url = 'https://substack.com/@kristineyuxi'
+        weight = 40
         params = { icon = 'brand-substack', newTab = true }
+      [[languages.zh-cn.menu.social]]
+        name = 'Medium 媒体'
+        url = 'https://medium.com/@kristineyuxi'
+        weight = 50
+        params = { icon = 'brand-medium', newTab = true }
 
 [params]
   mainSections = ['post']

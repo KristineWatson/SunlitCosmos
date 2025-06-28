@@ -11,10 +11,20 @@
     z-index: 100;
 }
 
+.menu-social {
+  gap: 0.8rem !important;
+}
+
+.menu-social-item {
+  min-width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .menu-social-item.wechat-icon {
   position: relative;
-  min-width: 40px;
-  white-space: nowrap;
+  overflow: visible;
 }
 
 .menu-social-item.wechat-icon .wechat-qrcode-popup {
@@ -47,6 +57,50 @@
 
 @media (max-width: 768px) {
   .menu-social-item.wechat-icon .wechat-qrcode-popup {
+    left: 50%;
+    top: 120%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+.menu-social-item.xhs-icon {
+  position: relative;
+  overflow: visible;
+}
+
+.menu-social-item.xhs-icon .xhs-popup {
+  display: none;
+  position: absolute;
+  left: 120%;
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 100;
+  width: 140px;
+  white-space: nowrap;
+}
+
+.menu-social-item.xhs-icon:hover .xhs-popup,
+.menu-social-item.xhs-icon:focus-within .xhs-popup {
+  display: block;
+}
+
+.menu-social-item.xhs-icon .xhs-popup img {
+  width: 120px;
+  height: 120px;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .menu-social-item.xhs-icon .xhs-popup {
     left: 50%;
     top: 120%;
     right: auto;
