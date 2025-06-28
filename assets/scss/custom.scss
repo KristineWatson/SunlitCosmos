@@ -20,6 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  &:active {
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
+  }
 }
 
 .menu-social-item.wechat-icon {
@@ -384,6 +389,7 @@
   z-index: 250;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
   
   @media (max-width: 768px) {
     display: flex;
@@ -467,6 +473,11 @@
   &.is-active .hamburger-inner::before,
   &.is-active .hamburger-inner::after {
     background-color: var(--accent-color);
+  }
+  
+  &:active {
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
   }
 }
 
@@ -584,7 +595,7 @@
 #dark-mode-toggle {
   cursor: pointer !important;
   user-select: none;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
   
   &:hover {
     opacity: 0.8;
@@ -592,7 +603,8 @@
   }
   
   &:active {
-    transform: scale(0.95) translateY(0);
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
   }
   
   // 确保图标可见
@@ -606,7 +618,7 @@
 #mobile-menu-container #dark-mode-toggle {
   cursor: pointer !important;
   user-select: none;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
   display: flex !important;
   align-items: center;
   gap: 10px;
@@ -618,7 +630,8 @@
   }
   
   &:active {
-    transform: scale(0.95) translateY(0);
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
   }
   
   // 确保图标可见
@@ -631,5 +644,47 @@
   span {
     color: var(--body-text-color);
     font-size: 1.4rem;
+  }
+}
+
+// 通用按钮点击与悬停动画
+.button, button, .copyCodeButton, .mobile-fixed-menu-button, .menu-social-item > a, .menu a, .pagination .page-link, .article-category a, .article-tags a {
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+  user-select: none;
+  
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px) scale(1.03);
+  }
+  &:active {
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
+  }
+}
+
+// 社交图标li也加动画
+.menu-social-item {
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px) scale(1.03);
+  }
+  &:active {
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
+  }
+}
+
+// 兼容暗色切换按钮
+#dark-mode-toggle, #mobile-menu-container #dark-mode-toggle {
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px) scale(1.03);
+  }
+  &:active {
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
   }
 }
