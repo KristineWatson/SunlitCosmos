@@ -654,28 +654,6 @@
   }
 }
 
-// 确保暗色模式切换按钮可见且可点击
-#dark-mode-toggle {
-  cursor: pointer !important;
-  user-select: none;
-  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
-  
-  &:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
-  }
-  
-  &:active {
-    transform: scale(0.95) translateY(1px);
-    opacity: 0.85;
-  }
-  
-  svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
 // 移动端菜单中的暗色模式切换按钮
 #mobile-menu-container #dark-mode-toggle {
   cursor: pointer !important;
@@ -683,7 +661,7 @@
   transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
   display: flex !important;
   align-items: center;
-  gap: 10px;
+  gap: 25px;
   padding: 10px 0;
   
   &:hover {
@@ -699,6 +677,10 @@
   svg {
     width: 20px;
     height: 20px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    stroke-width: 1.33;
+    margin-left: 5px;
   }
   
   span {
@@ -725,19 +707,6 @@
 
 // 社交图标li也加动画
 .menu-social-item {
-  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
-  &:hover {
-    opacity: 0.8;
-    transform: translateY(-1px) scale(1.03);
-  }
-  &:active {
-    transform: scale(0.95) translateY(1px);
-    opacity: 0.85;
-  }
-}
-
-// 兼容暗色切换按钮
-#dark-mode-toggle, #mobile-menu-container #dark-mode-toggle {
   transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
   &:hover {
     opacity: 0.8;
@@ -809,4 +778,86 @@
   opacity: 1 !important;
   transform: translateX(-50%);
   pointer-events: auto;
+}
+
+// 隐藏语言切换按钮
+#i18n-switch {
+  display: none !important;
+}
+
+// 桌面端暗色模式切换按钮样式 - 覆盖主题样式
+#dark-mode-toggle {
+  cursor: pointer !important;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  display: flex !important;
+  align-items: center;
+  gap: 25px;
+  padding: 0 0 0 10px;
+  overflow: visible !important;
+  margin-top: auto;
+  color: var(--body-text-color);
+  
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px) scale(1.03);
+  }
+  
+  &:active {
+    transform: scale(0.95) translateY(1px);
+    opacity: 0.85;
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    stroke-width: 1.33;
+    margin-left: 5px;
+  }
+  
+  span {
+    color: var(--body-text-color);
+    font-size: 1.4rem;
+    white-space: nowrap;
+    flex: 1;
+  }
+  
+  .icon-tabler-toggle-right {
+    display: none;
+  }
+}
+
+// 暗色模式下的样式
+[data-scheme="dark"] {
+  #dark-mode-toggle {
+    color: var(--accent-color);
+    font-weight: 700;
+
+    .icon-tabler-toggle-left {
+      display: none;
+    }
+
+    .icon-tabler-toggle-right {
+      display: unset;
+    }
+  }
+}
+
+// 左侧边栏样式调整，确保暗色模式切换按钮有足够空间
+.left-sidebar {
+  overflow: visible !important;
+  
+  .menu-bottom-section {
+    overflow: visible !important;
+    
+    ol {
+      overflow: visible !important;
+      
+      li {
+        overflow: visible !important;
+      }
+    }
+  }
 }
