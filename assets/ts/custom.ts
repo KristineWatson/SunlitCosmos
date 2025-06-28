@@ -146,10 +146,10 @@ function initMobileScrollInteraction() {
   let triggerOffset = 0; // 触发滚动的偏移量
   
   // 滚动速度控制参数
-  const scrollSpeedMultiplier = 0.001; // 最慢速度：0.005 = 页面滚动速度的0.5%
+  const scrollSpeedMultiplier = 1.0; // 与页面滚动速度完全同步
   const triggerPercentage = 0.75; // 触发滚动的百分比：0.8 = 80%时开始滚动，0.5 = 50%时开始滚动
-  const minMoveDistance = 0.01; // 最小移动距离，防止移动过快
-  const maxMoveDistance = 0.05; // 最大移动距离，限制移动速度
+  const minMoveDistance = 0; // 移除最小移动距离限制
+  const maxMoveDistance = Infinity; // 移除最大移动距离限制
   
   // 计算left-sidebar的高度和触发偏移量
   function updateDimensions() {
@@ -170,14 +170,8 @@ function initMobileScrollInteraction() {
     if (scrollDelta > 0) {
       // 当滚动距离超过触发偏移量时，开始同步滚动
       if (scrollTop > triggerOffset) {
-        // 计算left-sidebar的移动距离，应用速度倍数和限制
-        const rawMoveDistance = scrollTop - triggerOffset;
-        let moveDistance = rawMoveDistance * scrollSpeedMultiplier;
-        
-        // 应用最小和最大移动距离限制
-        moveDistance = Math.max(minMoveDistance, Math.min(moveDistance, maxMoveDistance));
-        moveDistance = Math.min(moveDistance, sidebarHeight);
-        
+        // 计算left-sidebar的移动距离，与页面滚动完全同步
+        const moveDistance = Math.min(scrollTop - triggerOffset, sidebarHeight);
         const translateY = -moveDistance;
         const opacity = Math.max(0, 1 - moveDistance / sidebarHeight);
         
@@ -207,13 +201,8 @@ function initMobileScrollInteraction() {
     else if (scrollDelta < 0) {
       // 当滚动回到触发偏移量以下时，开始恢复left-sidebar
       if (scrollTop <= triggerOffset) {
-        // 计算left-sidebar的恢复距离，应用速度倍数和限制
-        const rawMoveDistance = triggerOffset - scrollTop;
-        let moveDistance = Math.max(0, rawMoveDistance * scrollSpeedMultiplier);
-        
-        // 应用最小和最大移动距离限制
-        moveDistance = Math.max(minMoveDistance, Math.min(moveDistance, maxMoveDistance));
-        
+        // 计算left-sidebar的恢复距离，与页面滚动完全同步
+        const moveDistance = Math.max(0, triggerOffset - scrollTop);
         const translateY = -moveDistance;
         const opacity = Math.max(0, 1 - moveDistance / sidebarHeight);
         
